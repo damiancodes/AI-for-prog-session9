@@ -1,0 +1,16 @@
+# Python files are for local exercise only — Vercel uses Node (api/*.js) + public/
+pyproject.toml
+requirements.txt
+pytest.ini
+serve_weather.py
+weather_solution.py
+test_weather.py
+FACILITATOR_RUNSHEET.md
+exercise-4-participant-handout.md
+EXERCISE_4_TASK.md
+.venv
+__pycache__
+api/__pycache__
+*.pyc
+weather.html
+index.html

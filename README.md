@@ -61,12 +61,16 @@ Good for showing the **3-city dashboard** to remote participants — one URL in 
 1. Push this repo to GitHub  
 2. Import project at [vercel.com](https://vercel.com) → connect the repo  
 3. **Settings → Environment Variables** → add `OPENWEATHER_API_KEY` (your key)  
-4. Deploy → share `https://your-project.vercel.app`
+4. **Redeploy** after saving the env var  
+5. Share `https://your-project.vercel.app`
+
+**Test:** `/api/health` should return `"key_configured": true`  
+**Dashboard:** `/` shows Nairobi, Kampala, Johannesburg
+
+Vercel uses **Node.js** (`api/weather.js`) + static `public/index.html`.  
+Python files are local-only (`.vercelignore` excludes them from deploy).
 
 The API key stays on Vercel (server-side) — not in the HTML.
-
-**Local dev still uses** `serve_weather.py` or `python weather_solution.py`.  
-**pytest / exercise code** — participants clone the repo; the Vercel link is demo-only.
 
 ---
 
