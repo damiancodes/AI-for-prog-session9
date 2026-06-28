@@ -57,6 +57,26 @@
     .meta span { display: block; opacity: 0.7; font-size: 0.75rem; }
     .error { color: #fecaca; text-align: center; line-height: 1.5; }
     .loading { text-align: center; opacity: 0.8; }
+    .actions {
+      text-align: center;
+      margin-top: 2rem;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .exercise-btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background: #2563eb;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: background 0.2s;
+    }
+    .exercise-btn:hover { background: #1d4ed8; }
   </style>
 </head>
 <body>
@@ -64,8 +84,12 @@
     <p class="label">Exercise 4 · OpenWeather API</p>
   </div>
   <div id="content" class="loading">Loading weather for Nairobi, Kampala & Johannesburg…</div>
+  <div id="actions" class="actions" style="display: none;">
+    <a href="/exercise.html" class="exercise-btn">Exercise</a>
+  </div>
   <script>
     const el = document.getElementById("content");
+    const actions = document.getElementById("actions");
 
     function card(d) {
       return `
@@ -87,6 +111,7 @@
         const cities = Array.isArray(data) ? data : [data];
         el.className = "grid";
         el.innerHTML = cities.map(card).join("");
+        actions.style.display = "block";
       })
       .catch((err) => {
         el.className = "error";

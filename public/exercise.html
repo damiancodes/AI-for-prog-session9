@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 4 — API Integration</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 100%);
+      color: #f8fafc;
+      padding: 2rem 1.5rem 3rem;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    .label {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 0.5rem;
+    }
+    h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .meta { opacity: 0.8; margin-bottom: 2rem; font-size: 0.95rem; }
+    h2 { font-size: 1.15rem; margin: 1.75rem 0 0.75rem; }
+    p, li { margin-bottom: 0.5rem; opacity: 0.92; }
+    ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    pre {
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 10px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      margin: 0.75rem 0 1rem;
+      white-space: pre-wrap;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #93c5fd;
+      text-decoration: none;
+    }
+    .back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="label">APHRC · Session 9</p>
+    <h1>Exercise 4 — API Integration & Testing</h1>
+    <p class="meta">~20 min · Nairobi & Kampala · OpenWeatherMap</p>
+
+    <h2>Part A — Build with AI</h2>
+    <p>Copy this prompt into your AI assistant (do <strong>not</strong> paste your API key into chat):</p>
+    <pre>Write a Python script that fetches current weather for Nairobi and Kampala from OpenWeatherMap.
+
+Requirements:
+- Read the API key from os.getenv("OPENWEATHER_API_KEY")
+- Load .env with python-dotenv if needed
+- Raise a clear error if the key is missing
+- Use requests with timeout=10
+- Print: city name, temperature in °C, weather description
+- Handle HTTP 401, 404, and 429 with readable messages
+- Do NOT hard-code any API key
+
+Endpoint: GET https://api.openweathermap.org/data/2.5/weather
+Params: q (city), appid (API key), units=metric</pre>
+
+    <h2>Part B — Test with AI</h2>
+    <p>Run tests locally:</p>
+    <pre>source .venv/bin/activate
+pytest test_weather.py -v</pre>
+    <p>Success: <strong>8 passed, 1 skipped</strong></p>
+
+    <h2>Reference</h2>
+    <ul>
+      <li>GitHub: <a href="https://github.com/damiancodes/AI-for-prog-session9" style="color:#93c5fd">github.com/damiancodes/AI-for-prog-session9</a></li>
+      <li>API key: from meeting chat → save in local <code>.env</code> only</li>
+    </ul>
+
+    <a class="back" href="/">← Back to live dashboard</a>
+  </div>
+</body>
+</html>
