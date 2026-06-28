@@ -1,5 +1,3 @@
-/** Vercel serverless — GET /api/weather */
-
 const CITIES = ["Nairobi", "Kampala", "Johannesburg"];
 const BASE = "https://api.openweathermap.org/data/2.5/weather";
 
@@ -13,14 +11,16 @@ function summary(data) {
   };
 }
 
-module.exports = async function handler(_req, res) {
+export default async function handler() {
   const key = process.env.OPENWEATHER_API_KEY;
   if (!key) {
-    res.status(500).json({
-      error:
-        "OPENWEATHER_API_KEY not set. Vercel → Settings → Environment Variables → redeploy.",
-    });
-    return;
+    return Response.json(
+      {
+        error:
+          "OPENWEATHER_API_KEY not set. Vercel → Settings → Environment Variables → redeploy.",
+      },
+      { status: 500 }
+    );
   }
 
   try {
@@ -35,17 +35,21 @@ module.exports = async function handler(_req, res) {
         "&units=metric";
       const response = await fetch(url);
       if (response.status === 401) {
-        res.status(500).json({ error: "Invalid API key (401)." });
-        return;
+        return Response.json({ error: "Invalid API key (401)." }, { status: 500 });
       }
       if (!response.ok) {
-        res.status(500).json({ error: "OpenWeather error " + response.status + " for " + city });
-        return;
+        return Response.json(
+          { error: "OpenWeather error " + response.status + " for " + city },
+          { status: 500 }
+        );
       }
       results.push(summary(await response.json()));
     }
-    res.status(200).json(results);
+    return Response.json(results);
   } catch (err) {
-    res.status(500).json({ error: err.message || "Weather fetch failed" });
+    return Response.json(
+      { error: err.message || "Weather fetch failed" },
+      { status: 500 }
+    );
   }
-};
+}

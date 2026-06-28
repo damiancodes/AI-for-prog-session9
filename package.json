@@ -1,4 +1,5 @@
 {
   "name": "aphrc-weather-demo",
-  "private": true
+  "private": true,
+  "type": "module"
 }
