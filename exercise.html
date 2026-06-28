@@ -25,16 +25,17 @@
     h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
     .meta { opacity: 0.8; margin-bottom: 2rem; font-size: 0.95rem; }
     h2 { font-size: 1.15rem; margin: 1.75rem 0 0.75rem; }
-    p, li { margin-bottom: 0.5rem; opacity: 0.92; }
-    ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    p { margin-bottom: 0.5rem; opacity: 0.92; }
     pre {
-      background: rgba(0, 0, 0, 0.35);
+      background: #d1d5db;
+      color: #111827;
       border-radius: 10px;
-      padding: 1rem;
+      padding: 1rem 1.15rem;
       overflow-x: auto;
       font-size: 0.85rem;
       margin: 0.75rem 0 1rem;
       white-space: pre-wrap;
+      border: 1px solid #9ca3af;
     }
     .back {
       display: inline-block;
@@ -52,7 +53,7 @@
     <p class="meta">~20 min · Nairobi & Kampala · OpenWeatherMap</p>
 
     <h2>Part A — Build with AI</h2>
-    <p>Copy this prompt into your AI assistant (do <strong>not</strong> paste your API key into chat):</p>
+    <p>Copy this prompt into your AI assistant:</p>
     <pre>Write a Python script that fetches current weather for Nairobi and Kampala from OpenWeatherMap.
 
 Requirements:
@@ -72,12 +73,6 @@ Params: q (city), appid (API key), units=metric</pre>
     <pre>source .venv/bin/activate
 pytest test_weather.py -v</pre>
     <p>Success: <strong>8 passed, 1 skipped</strong></p>
-
-    <h2>Reference</h2>
-    <ul>
-      <li>GitHub: <a href="https://github.com/damiancodes/AI-for-prog-session9" style="color:#93c5fd">github.com/damiancodes/AI-for-prog-session9</a></li>
-      <li>API key: from meeting chat → save in local <code>.env</code> only</li>
-    </ul>
 
     <a class="back" href="/">← Back to live dashboard</a>
   </div>
