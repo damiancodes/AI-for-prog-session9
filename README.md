@@ -13,7 +13,8 @@ Build a small OpenWeather client with AI, run it safely with env vars, then expl
 |------|---------|
 | `weather_solution.py` | Main app — fetch weather, build summaries, optional HTML export |
 | `serve_weather.py` | Local server + `index.html` dashboard (3 cities) |
-| `api/index.py` | Vercel FastAPI entrypoint (`/api/weather`) |
+| `api/weather.js` | Vercel serverless API (Node — `/api/weather`) |
+| `public/index.html` | Hosted dashboard (Vercel) |
 | `vercel.json` | Vercel config for hosted demo link |
 | `index.html` | Frontend that calls `/api/weather` |
 | `test_weather.py` | Unit, API (mocked), integration, and optional live tests |
