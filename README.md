@@ -13,6 +13,8 @@ Build a small OpenWeather client with AI, run it safely with env vars, then expl
 |------|---------|
 | `weather_solution.py` | Main app — fetch weather, build summaries, optional HTML export |
 | `serve_weather.py` | Local server + `index.html` dashboard (3 cities) |
+| `api/index.py` | Vercel FastAPI entrypoint (`/api/weather`) |
+| `vercel.json` | Vercel config for hosted demo link |
 | `index.html` | Frontend that calls `/api/weather` |
 | `test_weather.py` | Unit, API (mocked), integration, and optional live tests |
 | `.env.example` | Template for your API key — copy to `.env` |
@@ -50,6 +52,22 @@ open weather.html
 python serve_weather.py
 # → http://localhost:8765
 ```
+
+### Deploy to Vercel (share a link in the session)
+
+Good for showing the **3-city dashboard** to remote participants — one URL in chat.
+
+1. Push this repo to GitHub  
+2. Import project at [vercel.com](https://vercel.com) → connect the repo  
+3. **Settings → Environment Variables** → add `OPENWEATHER_API_KEY` (your key)  
+4. Deploy → share `https://your-project.vercel.app`
+
+The API key stays on Vercel (server-side) — not in the HTML.
+
+**Local dev still uses** `serve_weather.py` or `python weather_solution.py`.  
+**pytest / exercise code** — participants clone the repo; the Vercel link is demo-only.
+
+---
 
 ### Run tests
 

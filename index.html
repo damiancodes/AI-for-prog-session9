@@ -93,7 +93,7 @@
       })
       .catch((err) => {
         el.className = "error";
-        el.innerHTML = `${err.message}<br>Run: python3 serve_weather.py`;
+        el.innerHTML = `${err.message}<br>Check that OPENWEATHER_API_KEY is set on the server.`;
       });
   </script>
 </body>
